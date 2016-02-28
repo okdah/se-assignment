@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript">
+function httpGetAsync(callback) {
+	var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", "http://localhost:8080/api/quote", true); // true for asynchronous 
+    xmlHttp.send(null);
+}
+
+	$(document).ready(function () {
+		$(document).on("click", function () {
+			httpGetAsync(function (c) {
+				$('body').html(c);
+			});
+		});
+	});
+</script>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
