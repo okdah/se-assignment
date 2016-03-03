@@ -2,6 +2,16 @@
     "name": "node-api",
     "main": "server.js",
     "dependencies": {
-        "express": "~4.0.0"
+        "express": "~4.0.0",
+        "chai": "*",
+    	"mongodb": "*",
+        "mocha": "*",
+        "supertest": "*",
+        "istanbul": "*"
+    },
+    "scripts": {
+    	"start": "mongod",
+    	"test": "mocha",
+    	"coverage": "istanbul"
     }
 }
